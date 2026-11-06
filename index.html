@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام إدارة درجات الطلاب</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Student Management System</p>
+      <h1>نظام إدارة درجات الطلاب</h1>
+      <p>إضافة الطلاب وحساب المتوسط والتقدير ودرجات الرأفة بسهولة.</p>
+    </div>
+    <div class="hero-icon"></div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>إجمالي الطلاب</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>الطلاب الناجحون</span><strong id="passedStudents">0</strong></article>
+      <article class="stat-card"><span>يحتاجون مراجعة</span><strong id="reviewStudents">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><span class="section-tag">بيانات الطالب</span><h2>إضافة طالب جديد</h2></div>
+      </div>
+      <form id="studentForm" class="student-form">
+        <label>رقم الجلوس<input id="studentId" type="number" min="1" placeholder="مثال: 101" required></label>
+        <label>اسم الطالب<input id="studentName" type="text" placeholder="اكتب اسم الطالب" required></label>
+        <label>درجة المادة الأولى<input id="grade1" type="number" min="0" max="100" placeholder="من 100" required></label>
+        <label>درجة المادة الثانية<input id="grade2" type="number" min="0" max="100" placeholder="من 100" required></label>
+        <label>درجة المادة الثالثة<input id="grade3" type="number" min="0" max="100" placeholder="من 100" required></label>
+        <label>نسبة الحضور %<input id="attendance" type="number" min="0" max="100" placeholder="مثال: 80" required></label>
+        <button class="primary-btn" type="submit">＋ إضافة الطالب</button>
+      </form>
+      <p id="formMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading table-heading">
+        <div><span class="section-tag">كشف الدرجات</span><h2>قائمة الطلاب</h2></div>
+        <button id="clearAll" class="danger-btn" type="button">مسح جميع البيانات</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>رقم الجلوس</th><th>اسم الطالب</th><th>الدرجات</th><th>الحضور</th>
+            <th>المتوسط</th><th>التقدير</th><th>النتيجة</th><th>الإجراء</th>
+          </tr></thead>
+          <tbody id="studentsTable">
+            <tr><td colspan="8" class="empty">لا توجد بيانات حتى الآن. أضف أول طالب من النموذج بالأعلى.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel mercy-panel">
+      <div class="section-heading"><div><span class="section-tag">لجنة الرأفة</span><h2>الطلاب المتعثرون بعد إضافة الرأفة</h2></div></div>
+      <p class="hint">يتم عرض من متوسطه الأصلي من 40 إلى 49، مع إضافة 5 درجات لكل مادة (بحد أقصى 100).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>اسم الطالب</th><th>الدرجات بعد الرأفة</th><th>المتوسط الجديد</th></tr></thead>
+          <tbody id="mercyTable"><tr><td colspan="3" class="empty">لا يوجد طلاب تنطبق عليهم شروط الرأفة.</td></tr></tbody>
+        </table>
+      </div>
+      <div class="average-box">متوسط الطلاب المتعثرين بعد الرأفة: <strong id="mercyAverage">0.00</strong></div>
+    </section>
+    <footer>تم إنشاء المشروع باستخدام HTML وCSS وJavaScript</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
